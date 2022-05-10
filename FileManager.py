@@ -596,10 +596,8 @@ def main():
         tk.Button(f2, text="File Extension", command=btn10).pack()
         tk.Button(f2, text="File Type", command=btn11).pack()
         tk.Button(f2, text="ALL FILES", command=btn12).pack()
-
+    
     SortMenu()
-
-
 
 
     RaiseFrame(f1, hide=f2)
