@@ -133,6 +133,7 @@ def main():
                 os.rename(os.path.join(path, file), os.path.join(path, "." + file.split(".")[len(file.split(".")) - 1], file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Use again with same path", command=SortMenu).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
         def btn2():
             RaiseFrame(f3, hide=f2)
