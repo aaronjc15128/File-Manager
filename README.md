@@ -1,6 +1,11 @@
 # File Manager
 File Manager is a simple application that can sort out your messy files in a few clicks.
 
+## Download
+OS | GUI | CMD
+--- | --- | ---
+Windows 10 | *Coming Soon* | *Coming Soon*
+
 ## How it works
 Before using the app, you will have to put all your files in one folder.
 
@@ -8,7 +13,7 @@ The program will then ask for the path for the folder.
 
 Simple press "submit" and you'll be greeted with a mountain load of options to manage your files.
 
-## Sorting
+### Sorting
 There are 4 sorting options:
 
 File Extension
@@ -28,7 +33,7 @@ Sorting by File Type & Extension sorts by File Type first, then, in them folders
 
 Sorting by File Name Prefix sorts by a specified prefix in the file name.
 
-## Renaming
+### Renaming
 There are 4 renaming options:
 
 Adding Prefix
@@ -48,7 +53,7 @@ Adding File Extension adds the file extension at the start of the file name.
 
 Adding File Type adds the file type at the start of the file name.
 
-## Deleting
+### Deleting
 There are 4 deleting options:
 
 Prefix
