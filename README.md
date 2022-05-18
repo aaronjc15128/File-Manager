@@ -17,8 +17,7 @@ Simple press "submit" and you'll be greeted with a mountain load of options to m
 There are 4 sorting options:
 
 File Extension
-
-File Type
+<br>File Type
 
 File Type & Extension
 
