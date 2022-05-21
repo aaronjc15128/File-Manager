@@ -210,6 +210,7 @@ def main():
 
         SortMenu()
     tk.Button(f1, text="Submit", command=submitbtn).pack()
+    
     for _ in range(5): tk.Label(f1, bg="#181818").pack()
     tk.Label(f1, text="Files to Sort:", fg="#FFFFFF", bg="#181818", font=("Roboto", 15)).pack()
     filesLabel = tk.Label(f1, fg="#FFFFFF", bg="#181818")
