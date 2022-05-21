@@ -199,6 +199,11 @@ def main():
     tk.Button(f1, text="Show Files", command=showfiles).pack()
     
     def submitbtn():
+        if os.path.isdir(str(svpath.get())) and os.path.exists(str(svpath.get())):
+            pass
+        else:
+            return
+        
         RaiseFrame(f2, hide=f1)
         window_width = 260
         window_height = 650
@@ -443,6 +448,12 @@ def main():
             svprefixchar = tk.StringVar()
             tk.Entry(f3, textvariable=svprefixchar, width=30).pack()
             def submitbtnf2():
+                try:
+                    _prefixchar = int(svprefixchar.get())
+                except:
+                    return
+                
+                
                 RaiseFrame(f4, hide=f3)
                 
                 prefixchar = int(svprefixchar.get())
@@ -502,6 +513,10 @@ def main():
             svprefixchar = tk.StringVar()
             tk.Entry(f3, textvariable=svprefixchar, width=30).pack()
             def submitbtnf2():
+                for c in {"<", ">", ":", '"', "/", " \ ".strip(), "|", "?", "*"}:
+                    if c in str(svprefixchar.get()):
+                        return
+                
                 RaiseFrame(f4, hide=f3)
                 
                 prefixchar = str(svprefixchar.get()) + " "
@@ -783,7 +798,7 @@ def main():
             root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
 
-            tk.Label(f3, text="File Extension:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Label(f3, text="File Type:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
             svtype = tk.StringVar()
             tk.Entry(f3, textvariable=svtype, width=30).pack()
             def submitbtnf2():
