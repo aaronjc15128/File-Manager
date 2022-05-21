@@ -120,7 +120,6 @@ def main():
 
     root  = tk.Tk()
 
-    root.iconbitmap("Icon.ico")
     root.title("File Manager - Aaron Chauhan")
     root.config(background="#181818")
 
