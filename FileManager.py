@@ -3,6 +3,7 @@ def main():
     from tkinter import filedialog
 
     import os
+    import sys
     import webbrowser
 
 
@@ -118,8 +119,15 @@ def main():
                 kwargs["hide"].grid_forget()
 
 
+    if getattr(sys, 'frozen', False):
+        application_path = os.path.dirname(sys.executable)
+    elif __file__:
+        application_path = os.path.dirname(__file__)
+
+
     root  = tk.Tk()
 
+    root.iconbitmap(os.path.join(application_path, "Icon.ico"))
     root.title("File Manager - Aaron Chauhan")
     root.config(background="#181818")
 
