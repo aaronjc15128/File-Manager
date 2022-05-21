@@ -1,5 +1,6 @@
 def main():
     import tkinter as tk
+    from tkinter import filedialog
 
     import os
 
@@ -156,9 +157,17 @@ def main():
     tk.Label(f1, text="Enter path of folder:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
 
     svpath = tk.StringVar()
-    tk.Entry(f1, textvariable=svpath, width=100).pack()
+    path_entry = tk.Entry(f1, textvariable=svpath, width=100)
+    path_entry.pack()
 
     tk.Label(f1, bg="#181818").pack()
+
+    def browsefiles():
+        path_fdad = filedialog.askdirectory(initialdir = "/", title = "Select Path")
+        path_entry.delete(0, tk.END)
+        path_entry.insert(0, path_fdad)
+    tk.Button(f1, text="Browse", command=browsefiles).pack()
+
     def showfiles():
         global path
         path = svpath.get()
@@ -179,8 +188,8 @@ def main():
 
         filesLabel.config(text=filesStr)
         filesLabel.pack()
-
     tk.Button(f1, text="Show Files", command=showfiles).pack()
+    
     def submitbtn():
         RaiseFrame(f2, hide=f1)
         window_width = 260
