@@ -138,8 +138,11 @@ def main():
     f3 = tk.Frame(root)
     f4 = tk.Frame(root)
 
-    for frame in {f1, f2, f3}:
-        frame.grid(row=0, column=0)
+    for frame in {f1, f2, f3, f4}:
+        frame.grid(row=0, column=0, sticky="NESW")
+        frame.grid_columnconfigure(0, weight=1)
+        root.grid_columnconfigure(0, weight=1)
+
         frame.config(background="#181818")
 
 
