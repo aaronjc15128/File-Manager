@@ -116,7 +116,7 @@ def main():
         frame.config(background="#181818")
         frame.tkraise()
         if "hide" in kwargs:
-                kwargs["hide"].grid_forget()
+            kwargs["hide"].grid_forget()
 
 
     if getattr(sys, 'frozen', False):
