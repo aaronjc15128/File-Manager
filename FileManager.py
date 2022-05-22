@@ -359,11 +359,11 @@ def main():
                 if extension in filetypesDIC:
                     os.rename(os.path.join(path, file), os.path.join(path, filetypesDIC[extension], file))
                 elif miscellaneous == False:
-                    os.mkdir(os.path.join(path, "miscellaneous"))
-                    os.rename(os.path.join(path, file), os.path.join(path, "miscellaneous", file))
+                    os.mkdir(os.path.join(path, "Miscellaneous"))
+                    os.rename(os.path.join(path, file), os.path.join(path, "Miscellaneous", file))
                     miscellaneous = True
                 else:
-                    os.rename(os.path.join(path, file), os.path.join(path, "miscellaneous", file))
+                    os.rename(os.path.join(path, file), os.path.join(path, "Miscellaneous", file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
