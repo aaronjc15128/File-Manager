@@ -6,6 +6,9 @@ OS | GUI | CMD
 --- | --- | ---
 Windows 10 | [Download v1.1.1](https://bit.ly/3PDxGBq) | *Coming Soon*
 
+### Planned releases
+* v1.2.0 - 24/05/2022
+
 ## How it works
 Before using the app, you will have to put all your files in one folder.
 
