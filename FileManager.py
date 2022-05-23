@@ -3,6 +3,7 @@ def main():
     from tkinter import filedialog
 
     import os
+    import shutil
     import sys
     import webbrowser
 
@@ -158,6 +159,24 @@ def main():
     root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
 
+    # backup
+    def ClearBackup():
+        try:
+            for file in os.listdir(os.path.join(application_path, "backup\\undo_button")):
+                os.remove(os.path.join(application_path, "backup\\undo_button", file))
+        except:
+            pass
+        
+        try:
+            os.rmdir(os.path.join(application_path, "backup\\undo_button"))
+        except:
+            return
+    ClearBackup()
+
+    def CreateBackup():
+        shutil.copytree(path, os.path.join(application_path, "backup\\undo_button"))
+
+
     # f1
     tk.Label(f1, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 32)).pack()
     tk.Label(f1, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 15)).pack()
@@ -233,6 +252,9 @@ def main():
 
 
     def UseAgain_samepath():
+        ClearBackup()
+        CreateBackup()
+        
         RaiseFrame(f2, hide=f3)
         RaiseFrame(f2, hide=f4)
 
@@ -259,6 +281,8 @@ def main():
             widget.destroy()
 
     def UseAgain_diffpath():
+        ClearBackup()
+        
         RaiseFrame(f1, hide=f3)
         RaiseFrame(f1, hide=f4)
         
@@ -284,6 +308,18 @@ def main():
 
     # f2
     def SortMenu():
+        CreateBackup()
+
+        def undobtn():
+            for file in os.listdir(path):
+                try:
+                    shutil.rmtree(os.path.join(path, file))
+                except NotADirectoryError:
+                    os.remove(os.path.join(path, file))
+            
+            for file in os.listdir(os.path.join(application_path, "backup\\undo_button")):
+                shutil.move(os.path.join(application_path, "backup\\undo_button", file), path)
+        
         def btn1():
             RaiseFrame(f3, hide=f2)
             
@@ -311,6 +347,7 @@ def main():
                 os.rename(os.path.join(path, file), os.path.join(path, "." + file.split(".")[len(file.split(".")) - 1], file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Undo changes", command=undobtn).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
             tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
@@ -369,6 +406,7 @@ def main():
                     os.rename(os.path.join(path, file), os.path.join(path, "Miscellaneous", file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Undo changes", command=undobtn).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
             tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
@@ -421,6 +459,7 @@ def main():
                 os.rename(os.path.join(path, file), os.path.join(path, filetypesDIC[extension], extension, file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Undo changes", command=undobtn).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
             tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
@@ -484,6 +523,7 @@ def main():
                 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+                tk.Button(f4, text="Undo changes", command=undobtn).pack()
                 tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
                 tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
                 tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
@@ -538,6 +578,7 @@ def main():
                 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+                tk.Button(f4, text="Undo changes", command=undobtn).pack()
                 tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
                 tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
                 tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
@@ -611,6 +652,7 @@ def main():
                 os.rename(os.path.join(path, file), os.path.join(path, f"{strfs} {file}"))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Undo changes", command=undobtn).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
             tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
@@ -641,6 +683,7 @@ def main():
                 os.rename(os.path.join(path, file), os.path.join(path, "." + file.split(".")[len(file.split(".")) - 1] + " " + file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Undo changes", command=undobtn).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
             tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
@@ -671,6 +714,7 @@ def main():
                 os.rename(os.path.join(path, file), os.path.join(path, filetypesDIC["." + file.split(".")[len(file.split(".")) - 1]] + " " + file))
             
             tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Button(f3, text="Undo changes", command=undobtn).pack()
             tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
             tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
             tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
@@ -721,6 +765,7 @@ def main():
                 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+                tk.Button(f4, text="Undo changes", command=undobtn).pack()
                 tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
                 tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
                 tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
@@ -773,6 +818,7 @@ def main():
                 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+                tk.Button(f4, text="Undo changes", command=undobtn).pack()
                 tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
                 tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
                 tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
@@ -825,6 +871,7 @@ def main():
                 root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+                tk.Button(f4, text="Undo changes", command=undobtn).pack()
                 tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
                 tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
                 tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
@@ -877,6 +924,7 @@ def main():
                     root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
                     tk.Label(f4, text=f"DELETED Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+                    tk.Button(f4, text="Undo changes", command=undobtn).pack()
                     tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
                     tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
                     tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
