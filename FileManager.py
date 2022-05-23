@@ -994,4 +994,19 @@ def main():
 
 
 if __name__ == "__main__":
+    # check for updates
+    import requests, os, ctypes
+
+    response = requests.get("https://api.github.com/repos/aaronjc15128/file-manager/releases/latest")
+    name = response.json()["name"]
+    latestversion = name[name.index("v"):]
+    
+    try:
+        version = (os.path.basename(__file__)[os.path.basename(__file__).index("-"):])[1:]
+
+        if version != latestversion:
+            ctypes.windll.user32.MessageBoxW(0, f"FileManager-{latestversion} is now available on GitHub.", "New update available!", 0)
+    except ValueError:
+        pass
+    
     main()
