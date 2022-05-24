@@ -2,9 +2,9 @@
 File Manager is a simple application that can sort out your messy files in a few clicks.
 
 ## Download
-OS | GUI
---- | ---
-Windows 10 | [Download v1.2.0](https://bit.ly/3LK1k54)
+OS | GUI | Staus
+--- | --- | ---
+Windows 10 | [Download v1.2.0](https://bit.ly/3LK1k54) | ✅ Latest
 
 #### Planned releases
 None at the moment.
