@@ -2,12 +2,12 @@
 File Manager is a simple application that can sort out your messy files in a few clicks.
 
 ## Download
-OS | GUI | CMD
---- | --- | ---
-Windows 10 | [Download v1.1.1](https://bit.ly/3PDxGBq) | *Coming Soon*
+OS | GUI
+--- | ---
+Windows 10 | [Download v1.2.0](https://bit.ly/3LK1k54)
 
 #### Planned releases
-* v1.2.0 - 24/05/2022
+None at the moment.
 
 ## How it works
 Before using the app, you will have to put all your files in one folder.
