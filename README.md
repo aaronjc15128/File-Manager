@@ -6,9 +6,6 @@ OS | Download | Reccommended?
 --- | --- | ---
 Windows 10 | [Download v1.2.0](https://bit.ly/3LK1k54) | ❌ Wait for v1.2.1
 
-#### Planned releases
-None at the moment.
-
 ## How it works
 Before using the app, you will have to put all your files in one folder.
 
