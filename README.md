@@ -4,7 +4,7 @@ File Manager is a simple application that can sort out your messy files in a few
 ## Download
 OS | Download | Reccommended?
 --- | --- | ---
-Windows 10 | [Download v1.2.0](https://bit.ly/3LK1k54) | ❌ Wait for v1.2.1
+Windows 10 | [Download v1.2.1](https://bit.ly/3GLAt7J) | ✔ Yes
 
 ## How it works
 Before using the app, you will have to put all your files in one folder.
