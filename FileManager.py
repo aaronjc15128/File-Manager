@@ -846,7 +846,7 @@ if __name__ == "__main__":
         latestversion = name[name.index("v"):]
 
         try:
-            version = (os.path.basename(__file__)[os.path.basename(__file__).index("-"):])[1:]
+            version = ((os.path.basename(__file__)[os.path.basename(__file__).index("-"):])[1:])[:-4]
 
             if version != latestversion:
                 ctypes.windll.user32.MessageBoxW(0, f"FileManager-{latestversion} is now available on GitHub.\nCurrent Version: {version}", "New update available!", 0)
