@@ -132,6 +132,14 @@ def main():
     root.title("File Manager - Aaron Chauhan")
     root.config(background="#181818")
 
+    def SetWindowSize(window_width, window_height):
+        screen_width = root.winfo_screenwidth()
+        screen_height = root.winfo_screenheight()
+        center_x = int(screen_width/2 - window_width / 2)
+        center_y = int(screen_height/2 - window_height / 2)
+        
+        root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+
 
     # frames
     f1 = tk.Frame(root)
@@ -148,15 +156,7 @@ def main():
 
 
     # setup
-    window_width = 600
-    window_height = 800
-    
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    center_x = int(screen_width/2 - window_width / 2)
-    center_y = int(screen_height/2 - window_height / 2)
-    
-    root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+    SetWindowSize(600, 800)
 
 
     # backup
@@ -230,15 +230,7 @@ def main():
             return
         
         RaiseFrame(f2, hide=f1)
-        window_width = 260
-        window_height = 650
-        
-        screen_width = root.winfo_screenwidth()
-        screen_height = root.winfo_screenheight()
-        center_x = int(screen_width/2 - window_width / 2)
-        center_y = int(screen_height/2 - window_height / 2)
-        
-        root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+        SetWindowSize(260, 650)
 
         global path
         path = svpath.get()
@@ -261,15 +253,7 @@ def main():
         RaiseFrame(f2, hide=f3)
         RaiseFrame(f2, hide=f4)
 
-        window_width = 260
-        window_height = 650
-        
-        screen_width = root.winfo_screenwidth()
-        screen_height = root.winfo_screenheight()
-        center_x = int(screen_width/2 - window_width / 2)
-        center_y = int(screen_height/2 - window_height / 2)
-        
-        root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+        SetWindowSize(260, 650)
 
         global path
         path = svpath.get()
@@ -289,15 +273,7 @@ def main():
         RaiseFrame(f1, hide=f3)
         RaiseFrame(f1, hide=f4)
         
-        window_width = 600
-        window_height = 800
-
-        screen_width = root.winfo_screenwidth()
-        screen_height = root.winfo_screenheight()
-        center_x = int(screen_width/2 - window_width / 2)
-        center_y = int(screen_height/2 - window_height / 2)
-
-        root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+        SetWindowSize(600, 800)
 
         for widget in f4.winfo_children():
             widget.destroy()
@@ -330,15 +306,7 @@ def main():
         def btn1():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 700
-            window_height = 800
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(700, 800)
             
 
             extensions = []
@@ -371,15 +339,7 @@ def main():
         def btn2():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 750
-            window_height = 800
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(750, 800)
             
 
             extensions = []
@@ -431,15 +391,7 @@ def main():
         def btn3():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 750
-            window_height = 800
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(750, 800)
             
 
             extensions = []
@@ -485,15 +437,7 @@ def main():
         def btn4():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 210
-            window_height = 120
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(210, 120)
 
 
             tk.Label(f3, text="Number of characters in prefix:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
@@ -522,15 +466,7 @@ def main():
                 for file in files:
                     os.rename(os.path.join(path, file), os.path.join(path, file[:prefixchar], file))
             
-                window_width = 750
-                window_height = 900
-
-                screen_width = root.winfo_screenwidth()
-                screen_height = root.winfo_screenheight()
-                center_x = int(screen_width/2 - window_width / 2)
-                center_y = int(screen_height/2 - window_height / 2)
-
-                root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                SetWindowSize(750, 900)
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                 ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
@@ -552,15 +488,7 @@ def main():
         def btn5():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 180
-            window_height = 120
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(180, 120)
 
 
             tk.Label(f3, text="Prefix:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
@@ -578,15 +506,7 @@ def main():
                 for file in files:
                     os.rename(os.path.join(path, file), os.path.join(path, prefixchar + file))
             
-                window_width = 750
-                window_height = 900
-
-                screen_width = root.winfo_screenwidth()
-                screen_height = root.winfo_screenheight()
-                center_x = int(screen_width/2 - window_width / 2)
-                center_y = int(screen_height/2 - window_height / 2)
-
-                root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                SetWindowSize(750, 900)
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                 ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
@@ -608,15 +528,7 @@ def main():
         def btn6():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 700
-            window_height = 800
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(700, 800)
             
 
             units = {
@@ -681,15 +593,7 @@ def main():
         def btn7():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 700
-            window_height = 800
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(700, 800)
             
 
             for file in files:
@@ -713,15 +617,7 @@ def main():
         def btn8():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 700
-            window_height = 800
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(700, 800)
             
 
             for file in files:
@@ -745,15 +641,7 @@ def main():
         def btn9():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 180
-            window_height = 120
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(180, 120)
 
 
             tk.Label(f3, text="Prefix:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
@@ -769,15 +657,7 @@ def main():
                         os.remove(os.path.join(path, file))
 
 
-                window_width = 750
-                window_height = 900
-
-                screen_width = root.winfo_screenwidth()
-                screen_height = root.winfo_screenheight()
-                center_x = int(screen_width/2 - window_width / 2)
-                center_y = int(screen_height/2 - window_height / 2)
-
-                root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                SetWindowSize(750, 900)
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                 ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
@@ -799,15 +679,7 @@ def main():
         def btn10():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 180
-            window_height = 120
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(180, 120)
 
 
             tk.Label(f3, text="File Extension:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
@@ -823,15 +695,7 @@ def main():
                         os.remove(os.path.join(path, file))
 
 
-                window_width = 750
-                window_height = 900
-
-                screen_width = root.winfo_screenwidth()
-                screen_height = root.winfo_screenheight()
-                center_x = int(screen_width/2 - window_width / 2)
-                center_y = int(screen_height/2 - window_height / 2)
-
-                root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                SetWindowSize(750, 900)
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                 ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
@@ -853,15 +717,7 @@ def main():
         def btn11():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 180
-            window_height = 120
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(180, 120)
 
 
             tk.Label(f3, text="File Type:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
@@ -877,15 +733,7 @@ def main():
                         os.remove(os.path.join(path, file))
 
 
-                window_width = 750
-                window_height = 900
-
-                screen_width = root.winfo_screenwidth()
-                screen_height = root.winfo_screenheight()
-                center_x = int(screen_width/2 - window_width / 2)
-                center_y = int(screen_height/2 - window_height / 2)
-
-                root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                SetWindowSize(750, 900)
 
                 tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                 ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
@@ -907,15 +755,7 @@ def main():
         def btn12():
             RaiseFrame(f3, hide=f2)
             
-            window_width = 180
-            window_height = 120
-
-            screen_width = root.winfo_screenwidth()
-            screen_height = root.winfo_screenheight()
-            center_x = int(screen_width/2 - window_width / 2)
-            center_y = int(screen_height/2 - window_height / 2)
-
-            root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+            SetWindowSize(180, 120)
 
 
             tk.Label(f3, text="Type DELETE to confirm:", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
@@ -931,15 +771,7 @@ def main():
                         os.remove(os.path.join(path, file))
 
 
-                    window_width = 750
-                    window_height = 900
-
-                    screen_width = root.winfo_screenwidth()
-                    screen_height = root.winfo_screenheight()
-                    center_x = int(screen_width/2 - window_width / 2)
-                    center_y = int(screen_height/2 - window_height / 2)
-
-                    root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                    SetWindowSize(750, 900)
 
                     tk.Label(f4, text=f"DELETED Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                     ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
@@ -957,15 +789,7 @@ def main():
                     ghlink.pack()
                     ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
                 else:
-                    window_width = 750
-                    window_height = 900
-
-                    screen_width = root.winfo_screenwidth()
-                    screen_height = root.winfo_screenheight()
-                    center_x = int(screen_width/2 - window_width / 2)
-                    center_y = int(screen_height/2 - window_height / 2)
-
-                    root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
+                    SetWindowSize(750, 900)
 
                     tk.Label(f4, text=f"DID NOT sort files in {path}\n(Incorrect Confirmation)", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
                     tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
