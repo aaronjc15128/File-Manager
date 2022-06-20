@@ -767,8 +767,12 @@ def main():
                 confirm = str(svconfirm.get())
 
                 if confirm.lower() == "delete":
-                    for file in files:
-                        os.remove(os.path.join(path, file))
+                    try:
+                        for file in files:
+                            os.remove(os.path.join(path, file))
+                    except (FileExistsError, PermissionError) as e:
+                        for folder in os.listdir(path):
+                            shutil.rmtree(os.path.join(path, folder))
 
 
                     SetWindowSize(750, 900)
