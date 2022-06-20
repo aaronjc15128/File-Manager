@@ -652,9 +652,14 @@ def main():
 
                 prefix = str(svprefix.get()) + " "
 
-                for file in files:
-                    if file.startswith(prefix) == True:
-                        os.remove(os.path.join(path, file))
+                try:
+                    for file in files:
+                        if file.startswith(prefix):
+                            os.remove(os.path.join(path, file))
+                except (FileExistsError, PermissionError) as e:
+                    for folder in os.listdir(path):
+                        if folder.startswith(prefix):
+                            shutil.rmtree(os.path.join(path, folder))
 
 
                 SetWindowSize(750, 900)
@@ -690,9 +695,15 @@ def main():
                 
                 extension = str(svextension.get())
 
-                for file in files:
-                    if "." + file.split(".")[len(file.split(".")) - 1] == extension:
-                        os.remove(os.path.join(path, file))
+                try:
+                    for file in files:
+                        if "." + file.split(".")[len(file.split(".")) - 1] == extension:
+                            os.remove(os.path.join(path, file))
+                except (FileExistsError, PermissionError) as e:
+                    for folder in os.listdir(path):
+                        if "." + folder.split(".")[len(folder.split(".")) - 1] == extension:
+                            shutil.rmtree(os.path.join(path, folder))
+                
 
 
                 SetWindowSize(750, 900)
