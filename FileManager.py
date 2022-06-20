@@ -164,7 +164,7 @@ def main():
         try:
             for file in os.listdir(os.path.join(application_path, "backup\\undo_button")):
                 os.remove(os.path.join(application_path, "backup\\undo_button", file))
-        except FileExistsError:
+        except (FileExistsError, PermissionError) as e:
             for folder in os.listdir(os.path.join(application_path, "backup\\undo_button")):
                 shutil.rmtree(os.path.join(application_path, "backup\\undo_button", folder))
         except FileNotFoundError:
