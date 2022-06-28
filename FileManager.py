@@ -177,7 +177,6 @@ def main():
     ClearBackup()
 
     def CreateBackup():
-        shutil.copytree(path, os.path.join(application_path, "backup\\undo_button"))
         if backup == 1:
             shutil.copytree(path, os.path.join(application_path, "backup\\undo_button"))
 
