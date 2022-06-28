@@ -298,31 +298,6 @@ def main():
     def SortMenu():
         CreateBackup()
 
-        def endpage(fn, btn):
-            if btn in {1, 2, 3, 4}: action = "Sorted"
-            elif btn in {5, 6, 7, 8}: action = "Renamed"
-            elif btn in {9, 10, 11, 12.1}: action = "Deleted"
-            elif btn == 12.2: action = "DID NOT delete"
-
-            if btn in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.1}: extras = ""
-            elif btn == 12.2: extras = "(Incorrect Confirmation)"
-            
-            tk.Label(fn, text=f"{action} files in {path}\n{extras}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(fn, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(fn, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(fn, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(fn, text="Exit", command=lambda:root.destroy()).pack()
-            
-            for _ in range(3): tk.Label(fn, bg="#181818").pack()
-            tk.Label(fn, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(fn, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(fn, bg="#181818").pack()
-            tk.Label(fn, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(fn, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
-
         def undobtn(undo_button_widget):
             for file in os.listdir(path):
                 try:
@@ -335,6 +310,31 @@ def main():
 
             undo_button_widget.destroy()
 
+        def endpage(fn, btn):
+            if btn in {1, 2, 3, 4}: action = "Sorted"
+            elif btn in {5, 6, 7, 8}: action = "Renamed"
+            elif btn in {9, 10, 11, 12.1}: action = "Deleted"
+            elif btn == 12.2: action = "DID NOT delete"
+
+            if btn in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.1}: extras = ""
+            elif btn == 12.2: extras = "(Incorrect Confirmation)"
+            
+            tk.Label(fn, text=f"{action} files in {path}\n{extras}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            ub = tk.Button(fn, text="Undo changes", command=lambda:undobtn(ub))
+            if backup == 1:
+                ub.pack()
+            tk.Button(fn, text="Use again with same path", command=UseAgain_samepath).pack()
+            tk.Button(fn, text="Use again with different path", command=UseAgain_diffpath).pack()
+            tk.Button(fn, text="Exit", command=lambda:root.destroy()).pack()
+            
+            for _ in range(3): tk.Label(fn, bg="#181818").pack()
+            tk.Label(fn, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
+            tk.Label(fn, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
+            tk.Label(fn, bg="#181818").pack()
+            tk.Label(fn, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
+            ghlink = tk.Label(fn, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
+            ghlink.pack()
+            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
             
         
         def btn1():
