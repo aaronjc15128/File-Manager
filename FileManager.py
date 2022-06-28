@@ -319,7 +319,7 @@ def main():
             if btn in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.1}: extras = ""
             elif btn == 12.2: extras = "(Incorrect Confirmation)"
             
-            tk.Label(fn, text=f"{action} files in {path}\n{extras}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Label(fn, text=f"{action} files in {path}{'\n'+extras}\n", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
             ub = tk.Button(fn, text="Undo changes", command=lambda:undobtn(ub))
             if backup == 1:
                 ub.pack()
