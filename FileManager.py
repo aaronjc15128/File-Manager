@@ -310,6 +310,31 @@ def main():
 
             undo_button_widget.destroy()
 
+        def endpage(fn, btn):
+            if btn in {1, 2, 3, 4}: action = "Sorted"
+            elif btn in {5, 6, 7, 8}: action = "Renamed"
+            elif btn in {9, 10, 11, 12.1}: action = "Deleted"
+            elif btn == 12.2: action = "DID NOT delete"
+
+            if btn in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.1}: extras = ""
+            elif btn == 12.2: extras = "(Incorrect Confirmation)"
+            
+            tk.Label(fn, text=f"{action} files in {path}\n{extras}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            ub = tk.Button(fn, text="Undo changes", command=lambda:undobtn(ub))
+            if backup == 1:
+                ub.pack()
+            tk.Button(fn, text="Use again with same path", command=UseAgain_samepath).pack()
+            tk.Button(fn, text="Use again with different path", command=UseAgain_diffpath).pack()
+            tk.Button(fn, text="Exit", command=lambda:root.destroy()).pack()
+            
+            for _ in range(3): tk.Label(fn, bg="#181818").pack()
+            tk.Label(fn, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
+            tk.Label(fn, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
+            tk.Label(fn, bg="#181818").pack()
+            tk.Label(fn, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
+            ghlink = tk.Label(fn, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
+            ghlink.pack()
+            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
             
         
         def btn1():
@@ -330,21 +355,8 @@ def main():
             for file in files:
                 os.rename(os.path.join(path, file), os.path.join(path, "." + file.split(".")[len(file.split(".")) - 1], file))
             
-            tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(f3, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
 
-            for _ in range(3): tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(f3, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(f3, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+            endpage(f3, 1)
         def btn2():
             RaiseFrame(f3, hide=f2)
             
@@ -382,21 +394,7 @@ def main():
                 else:
                     os.rename(os.path.join(path, file), os.path.join(path, "Miscellaneous", file))
             
-            tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(f3, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
-
-            for _ in range(3): tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(f3, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(f3, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+            endpage(f3, 2)
         def btn3():
             RaiseFrame(f3, hide=f2)
             
@@ -428,21 +426,7 @@ def main():
                 extension = "." + file.split(".")[len(file.split(".")) - 1]
                 os.rename(os.path.join(path, file), os.path.join(path, filetypesDIC[extension], extension, file))
             
-            tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(f3, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
-
-            for _ in range(3): tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(f3, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(f3, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+            endpage(f3, 3)
         def btn4():
             RaiseFrame(f3, hide=f2)
             
@@ -477,21 +461,8 @@ def main():
             
                 SetWindowSize(750, 900)
 
-                tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
-                ub.pack()
-                tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
-
-                for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                ghlink.pack()
-                ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                
+                endpage(f4, 4)
             tk.Label(f3, bg="#181818").pack()
             tk.Button(f3, text="Submit", command=submitbtnf2).pack()
         def btn5():
@@ -517,21 +488,8 @@ def main():
             
                 SetWindowSize(750, 900)
 
-                tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
-                ub.pack()
-                tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
-
-                for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                ghlink.pack()
-                ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                
+                endpage(f4, 5)
             tk.Label(f3, bg="#181818").pack()
             tk.Button(f3, text="Submit", command=submitbtnf2).pack()
         def btn6():
@@ -584,21 +542,8 @@ def main():
 
                 os.rename(os.path.join(path, file), os.path.join(path, f"{strfs} {file}"))
             
-            tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(f3, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
 
-            for _ in range(3): tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(f3, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(f3, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+            endpage(f3, 6)
         def btn7():
             RaiseFrame(f3, hide=f2)
             
@@ -608,21 +553,8 @@ def main():
             for file in files:
                 os.rename(os.path.join(path, file), os.path.join(path, "." + file.split(".")[len(file.split(".")) - 1] + " " + file))
             
-            tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(f3, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
 
-            for _ in range(3): tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(f3, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(f3, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+            endpage(f3, 7)
         def btn8():
             RaiseFrame(f3, hide=f2)
             
@@ -632,21 +564,8 @@ def main():
             for file in files:
                 os.rename(os.path.join(path, file), os.path.join(path, filetypesDIC["." + file.split(".")[len(file.split(".")) - 1]] + " " + file))
             
-            tk.Label(f3, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-            ub = tk.Button(f3, text="Undo changes", command=lambda:undobtn(ub))
-            ub.pack()
-            tk.Button(f3, text="Use again with same path", command=UseAgain_samepath).pack()
-            tk.Button(f3, text="Use again with different path", command=UseAgain_diffpath).pack()
-            tk.Button(f3, text="Exit", command=lambda:root.destroy()).pack()
-
-            for _ in range(3): tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-            tk.Label(f3, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-            tk.Label(f3, bg="#181818").pack()
-            tk.Label(f3, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-            ghlink = tk.Label(f3, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-            ghlink.pack()
-            ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+            
+            endpage(f3, 8)
         def btn9():
             RaiseFrame(f3, hide=f2)
             
@@ -673,21 +592,8 @@ def main():
 
                 SetWindowSize(750, 900)
 
-                tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
-                ub.pack()
-                tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
-
-                for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                ghlink.pack()
-                ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                
+                endpage(f4, 9)
             tk.Label(f3, bg="#181818").pack()
             tk.Button(f3, text="Submit", command=submitbtnf2).pack()  
         def btn10():
@@ -717,21 +623,8 @@ def main():
 
                 SetWindowSize(750, 900)
 
-                tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
-                ub.pack()
-                tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
-
-                for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                ghlink.pack()
-                ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                
+                endpage(f4, 10)
             tk.Label(f3, bg="#181818").pack()
             tk.Button(f3, text="Submit", command=submitbtnf2).pack()
         def btn11():
@@ -755,21 +648,8 @@ def main():
 
                 SetWindowSize(750, 900)
 
-                tk.Label(f4, text=f"Sorted Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
-                ub.pack()
-                tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
-
-                for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                tk.Label(f4, bg="#181818").pack()
-                tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                ghlink.pack()
-                ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                
+                endpage(f4, 11)
             tk.Label(f3, bg="#181818").pack()
             tk.Button(f3, text="Submit", command=submitbtnf2).pack()
         def btn12():
@@ -797,37 +677,11 @@ def main():
 
                     SetWindowSize(750, 900)
 
-                    tk.Label(f4, text=f"DELETED Files in {path}", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                    ub = tk.Button(f4, text="Undo changes", command=lambda:undobtn(ub))
-                    ub.pack()
-                    tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                    tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                    tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
 
-                    for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                    tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                    tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                    tk.Label(f4, bg="#181818").pack()
-                    tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                    ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                    ghlink.pack()
-                    ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                    endpage(f4, 12.1)
                 else:
                     SetWindowSize(750, 900)
-
-                    tk.Label(f4, text=f"DID NOT sort files in {path}\n(Incorrect Confirmation)", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
-                    tk.Button(f4, text="Use again with same path", command=UseAgain_samepath).pack()
-                    tk.Button(f4, text="Use again with different path", command=UseAgain_diffpath).pack()
-                    tk.Button(f4, text="Exit", command=lambda:root.destroy()).pack()
-
-                    for _ in range(3): tk.Label(f4, bg="#181818").pack()
-                    tk.Label(f4, text="File Manager", fg="#FFFFFF", bg="#181818", font=("Roboto", 26)).pack()
-                    tk.Label(f4, text="by Aaron Chauhan", fg="#FFFFFF", bg="#181818", font=("Roboto", 18)).pack()
-                    tk.Label(f4, bg="#181818").pack()
-                    tk.Label(f4, text="Links:", fg="#FFFFFF", bg="#181818", font=("Roboto", 14)).pack()
-                    ghlink = tk.Label(f4, text="Check out the GitHub page!", fg="#FFFFFF", bg="#181818", font=("Roboto", 12), cursor="hand2")
-                    ghlink.pack()
-                    ghlink.bind("<Button-1>", lambda e: webbrowser.open_new("https://github.com/aaronjc15128/File-Manager"))
+                    endpage(f4, 12.2)
             
             tk.Label(f3, bg="#181818").pack()
             tk.Button(f3, text="Submit", command=submitbtnf2).pack()
