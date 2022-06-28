@@ -178,6 +178,8 @@ def main():
 
     def CreateBackup():
         shutil.copytree(path, os.path.join(application_path, "backup\\undo_button"))
+        if backup == 1:
+            shutil.copytree(path, os.path.join(application_path, "backup\\undo_button"))
 
 
     # f1
@@ -224,6 +226,7 @@ def main():
     tk.Button(f1, text="Show Files", command=showfiles).pack()
     
     def submitbtn():
+        # check if dir/exists
         if os.path.isdir(str(svpath.get())) and os.path.exists(str(svpath.get())):
             pass
         else:
@@ -238,8 +241,15 @@ def main():
         global files
         files = os.listdir(path)
 
+        global backup
+        backup = cbiv.get()
+
         SortMenu()
     tk.Button(f1, text="Submit", command=submitbtn).pack()
+
+    tk.Label(f1, bg="#181818").pack()
+    cbiv = tk.IntVar()
+    tk.Checkbutton(f1, text="Create Backup", variable=cbiv, fg="#FFFFFF", bg="#181818", selectcolor="#181818", font=("Roboto", 12)).pack()
     
     for _ in range(5): tk.Label(f1, bg="#181818").pack()
     tk.Label(f1, text="Files to Sort:", fg="#FFFFFF", bg="#181818", font=("Roboto", 15)).pack()
