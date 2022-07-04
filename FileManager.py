@@ -248,7 +248,10 @@ def main():
 
     tk.Label(f1, bg="#181818").pack()
     cbiv = tk.IntVar()
-    tk.Checkbutton(f1, text="Create Backup", variable=cbiv, fg="#FFFFFF", bg="#181818", selectcolor="#181818", font=("Roboto", 12)).pack()
+    cb = tk.Checkbutton(f1, text="Create Backup", variable=cbiv, fg="#FFFFFF", bg="#181818", selectcolor="#181818", font=("Roboto", 12))
+    cb.pack()
+    cb.select()
+
     
     for _ in range(5): tk.Label(f1, bg="#181818").pack()
     tk.Label(f1, text="Files to Sort:", fg="#FFFFFF", bg="#181818", font=("Roboto", 15)).pack()
@@ -319,7 +322,7 @@ def main():
             if btn in {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.1}: extras = ""
             elif btn == 12.2: extras = "(Incorrect Confirmation)"
             
-            tk.Label(fn, text=f"{action} files in {path}{'\n'+extras}\n", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
+            tk.Label(fn, text=f"{action} files in {path}\n{extras}\n", fg="#FFFFFF", bg="#181818", font=("Roboto", 12)).pack()
             ub = tk.Button(fn, text="Undo changes", command=lambda:undobtn(ub))
             if backup == 1:
                 ub.pack()
@@ -442,6 +445,10 @@ def main():
                 except:
                     return
                 
+                for file in files:
+                    filepath = os.path.join(path, file)
+                    if os.path.isdir(filepath):
+                        return
                 
                 RaiseFrame(f4, hide=f3)
                 
@@ -637,6 +644,11 @@ def main():
             svtype = tk.StringVar()
             tk.Entry(f3, textvariable=svtype, width=30).pack()
             def submitbtnf2():
+                for file in files:
+                    filepath = os.path.join(path, file)
+                    if os.path.isdir(filepath):
+                        return
+                
                 RaiseFrame(f4, hide=f3)
                 
                 type = str(svtype.get())
