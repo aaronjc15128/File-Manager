@@ -747,7 +747,7 @@ if __name__ == "__main__":
         currentversion = os.path.basename(__file__).replace("FileManager-v", "").replace(".exe", "")
 
         if currentversion != latestversion:
-            ctypes.windll.user32.MessageBoxW(0, f"FileManager-{latestversion} is now available on GitHub.\nCurrent Version: {currentversion}", "New update available!", 0)
+            ctypes.windll.user32.MessageBoxW(0, f"FileManager-v{latestversion} is now available on GitHub.\nCurrent Version: {currentversion}", "New update available!", 0)
         else:
             pass
     except requests.exceptions.ConnectionError:
