@@ -11,7 +11,7 @@ Before using the app, you will have to put all your files in one folder.
 
 The program will then ask for the path for the folder.
 
-Simple press "submit" and you'll be greeted with a mountain load of options to manage your files.
+Simply press "submit" and you'll be greeted with a mountain load of options to manage your files.
 
 ### Sorting
 There are 4 sorting options:
