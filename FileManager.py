@@ -741,10 +741,10 @@ if __name__ == "__main__":
 
     try:
         response = requests.get("https://api.github.com/repos/aaronjc15128/file-manager/releases/latest")
-        name = response.json()["name"]
+        name = str(response.json()["name"])
         latestversion = (name.split("v"))[1]
 
-        currentversion = ((os.path.basename(__file__)).split("v"))[1]
+        currentversion = os.path.basename(__file__).replace("FileManager-v", "").replace(".exe", "")
 
         if currentversion != latestversion:
             ctypes.windll.user32.MessageBoxW(0, f"FileManager-{latestversion} is now available on GitHub.\nCurrent Version: {currentversion}", "New update available!", 0)
