@@ -2,6 +2,8 @@ def main():
     import tkinter as tk
     from tkinter import filedialog
 
+    import ctypes
+
     import os
     import shutil
     import sys
@@ -111,6 +113,8 @@ def main():
         ".wpd": "Word Processor"
     }
 
+    def msgbox(title, text, mode=0):
+        ctypes.windll.user32.MessageBoxW(0, text, title, mode)
 
     def RaiseFrame(frame, **kwargs):
         frame.grid(row=0, column=0)
@@ -229,6 +233,7 @@ def main():
         if os.path.isdir(str(svpath.get())) and os.path.exists(str(svpath.get())):
             pass
         else:
+            msgbox("Invalid Path", "We can't find the directory that your path links to.")
             return
         
         RaiseFrame(f2, hide=f1)
@@ -443,11 +448,13 @@ def main():
                 try:
                     _prefixchar = int(svprefixchar.get())
                 except:
+                    msgbox("Invalid Input", "Please input a number.")
                     return
                 
                 for file in files:
                     filepath = os.path.join(path, file)
                     if os.path.isdir(filepath):
+                        msgbox("Invalid Files", "We found a directory in your path.")
                         return
                 
                 RaiseFrame(f4, hide=f3)
@@ -484,6 +491,7 @@ def main():
             def submitbtnf2():
                 for c in {"<", ">", ":", '"', "/", " \ ".strip(), "|", "?", "*"}:
                     if c in str(svprefixchar.get()):
+                        msgbox("Invalid Prefix", "A file name cannot contain nay of the following characters:\n< > : "+'"'+" / "+" \ ".strip()+" | ? *")
                         return
                 
                 RaiseFrame(f4, hide=f3)
@@ -647,6 +655,7 @@ def main():
                 for file in files:
                     filepath = os.path.join(path, file)
                     if os.path.isdir(filepath):
+                        msgbox("Invalid Files", "We found a directory in your path.")
                         return
                 
                 RaiseFrame(f4, hide=f3)
