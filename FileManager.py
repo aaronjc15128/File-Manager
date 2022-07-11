@@ -737,17 +737,23 @@ def main():
 
 if __name__ == "__main__":
     # check for updates
-    import requests, os, ctypes
+    import requests, os, sys, ctypes
 
     try:
         response = requests.get("https://api.github.com/repos/aaronjc15128/file-manager/releases/latest")
         name = str(response.json()["name"])
         latestversion = (name.split("v"))[1]
 
-        currentversion = os.path.basename(__file__).replace("FileManager-v", "").replace(".exe", "")
+        if getattr(sys, 'frozen', False):
+            application_path = os.path.dirname(sys.executable)
+        elif __file__:
+            application_path = os.path.dirname(__file__)
+        cvtxt = open(os.path.join(application_path, "currentversion.txt"), "r")
+        currentversion = cvtxt.readline().strip()
+        cvtxt.close()
 
         if currentversion != latestversion:
-            ctypes.windll.user32.MessageBoxW(0, f"FileManager-v{latestversion} is now available on GitHub.\nCurrent Version: {currentversion}", "New update available!", 0)
+            ctypes.windll.user32.MessageBoxW(0, f"FileManager-v{latestversion} is now available on GitHub.\nCurrent Version: v{currentversion}", "New update available!", 0)
         else:
             pass
     except requests.exceptions.ConnectionError:
