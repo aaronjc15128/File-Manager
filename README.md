@@ -20,7 +20,7 @@ File Manager is a simple application that can sort out your messy files in a few
         </tr>
         <tr>
             <td>.zip</td>
-            <td><a href="https://bit.ly/3zQXpkt">Download v1.2.3</a></td>
+            <td><a href="https://bit.ly/3yttQ6p">Download v1.3.0</td>
             <td>✔ Easy for everyone</td>
         </tr>
     </tbody>
