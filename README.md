@@ -2,10 +2,29 @@
 File Manager is a simple application that can sort out your messy files in a few clicks.
 
 ## Download
-OS | Type | Download | Recommended?
---- | --- | --- | ---
-Windows 10 | .exe installer (SFX) | *Only available for v1.3.0 +* | ✔ Easy for everyone
-Windows 10 | .zip | [Download v1.2.3](https://bit.ly/3zQXpkt) | ❌ Only if you know how to extract .zip's
+<table>
+    <thead>
+        <tr>
+            <th>OS</th>
+            <th>Type</th>
+            <th>Download</th>
+            <th>Recommended?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=2>Windows 10</td>
+            <td>.exe installer (SFX)</td>
+            <td>*Only available for v1.3.0 +*</td>
+            <td>✔ Easy for everyone</td>
+        </tr>
+        <tr>
+            <td>.zip</td>
+            <td><a href="https://bit.ly/3zQXpkt">Download v1.2.3</a></td>
+            <td>❌ Only if you know how to extract a .zip</td>
+        </tr>
+    </tbody>
+</table>
 
 ## How it works
 Before using the app, you will have to put all your files in one folder.
