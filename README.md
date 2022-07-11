@@ -15,13 +15,13 @@ File Manager is a simple application that can sort out your messy files in a few
         <tr>
             <td rowspan=2>Windows 10</td>
             <td>.exe installer (SFX)</td>
-            <td>*Only available for v1.3.0 +*</td>
-            <td>✔ Easy for everyone</td>
+            <td><i>Coming Soon</i></td>
+            <td><i>Coming Soon</i></td>
         </tr>
         <tr>
             <td>.zip</td>
             <td><a href="https://bit.ly/3zQXpkt">Download v1.2.3</a></td>
-            <td>❌ Only if you know how to extract a .zip</td>
+            <td>✔ Easy for everyone</td>
         </tr>
     </tbody>
 </table>
