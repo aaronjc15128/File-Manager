@@ -4,8 +4,8 @@ File Manager is a simple application that can sort out your messy files in a few
 ## Download
 OS | Type | Download | Recommended?
 --- | --- | --- | ---
-Windows 10 | .exe installer (SFX) | [Download v1.2.3]() | ✔ Easy for everyone
-Windows 10 | .zip | [Download v1.2.3]() | ❌ Only if you know how to extract .zip's
+Windows 10 | .exe installer (SFX) | *Only available for v1.3.0 +* | ✔ Easy for everyone
+Windows 10 | .zip | [Download v1.2.3](https://bit.ly/3zQXpkt) | ❌ Only if you know how to extract .zip's
 
 ## How it works
 Before using the app, you will have to put all your files in one folder.
