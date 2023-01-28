@@ -14,14 +14,21 @@ File Manager is a simple application that can sort out your messy files in a few
     <tbody>
         <tr>
             <td rowspan=2>Windows 10</td>
+        <tr>
+            <td>.zip</td>
+            <td><a href="https://bit.ly/3yttQ6p">Download v1.3.0</td>
+            <td>✔ Easy for everyone</td>
+        </tr>
+        <tr>
+            <td rowspan=2>Linux (debian/ubuntu)</td>
             <td>.exe installer (SFX)</td>
             <td><i>Coming Soon</i></td>
             <td><i>Coming Soon</i></td>
         </tr>
         <tr>
             <td>.zip</td>
-            <td><a href="https://bit.ly/3yttQ6p">Download v1.3.0</td>
-            <td>✔ Easy for everyone</td>
+            <td><i>Coming Soon</i></td>
+            <td><i>Coming Soon</i></td>
         </tr>
     </tbody>
 </table>
